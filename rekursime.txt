@@ -1,0 +1,51 @@
+tugas rekursif versiku
+#include<stdio.h>
+#include<math.h>
+//hitung perpangkatan
+int hasil (int x, int y);
+float hasil2 (float a, float b, float c);
+float hasil3 (float r, float t);
+void main(){
+    int x,y,n;
+    float r, t, i, a, b, h, c;
+//Input output menghitung perpangkatan
+    printf("Menghitung bilangan pangkat\n");
+    printf("Masukkan bilangan :"); scanf("%d", &x);
+    printf("Masukkan bilangan pangkat: "); scanf("%d", &y);
+    n=hasil(x,y);
+    printf("hasil dari %d pangkat %d adalah %d\n\n" , x, y, n);
+//Input output menghitung volume limas
+    printf("Menghitung volume limas \n");
+    printf("Masukkan sisi a: "); scanf("%f", &a);
+    printf("Masukkan sisi b: "); scanf("%f", &b);
+    printf("Masukkan tingginya: "); scanf("%f", &c);
+    h=hasil2(a,b,c);
+    printf("hasil dari %2.f dikali %2.f dikali %2.f dibagi 3 adalah %.2f\n\n", a, b, c, h);
+//Input output menghitung volume kerucut
+    printf("Menghitung volume kerucut \n");
+    printf("masukkan jari-jarinya: "); scanf("%f", &r);
+    printf("Masukkan tingginya: "); scanf("%f", &t);
+    i = hasil3(r, t);
+    printf("Hasil dari Phi dikali %2.f pangkat 2 dikali %2.f adalah %.2f", r, t, i);
+}
+//cara penghitungannya dijabarkan di bawah ini
+
+//untuk menghitung perpangkatan
+int hasil (int x, int y){
+    int pangkat;
+    pangkat = pow(x,y);
+    return(pangkat);
+}
+//untuk menghitung volume limas
+float hasil2(float a, float b, float c){
+    float volume;
+    volume =(a*b*c)/3;
+    return(volume);
+}
+//untuk menghitung volume kerucut
+float hasil3 (float r, float t){
+    const float PI = 3.14;
+    float volume2;
+    volume2 = (PI*r*r*t)/3;
+    return(volume2);
+}

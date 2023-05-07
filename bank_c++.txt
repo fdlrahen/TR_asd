@@ -1,0 +1,691 @@
+#include <iostream> //untuk cout & cin
+#include <conio.h> //untuk getch();
+#include <cstdlib>
+#include <windows.h>
+#include <time.h>
+#include <stdio.h>
+using namespace std;
+void gotoxy (int x, int y){
+ COORD coord;
+ coord.X=x;
+ coord.Y=y;
+ SetConsoleCursorPosition ( GetStdHandle ( STD_OUTPUT_HANDLE), coord);
+}
+
+void delay(unsigned int mseconds)
+{
+clock_t goal=mseconds+clock();
+while(goal>clock());
+}
+int main()
+{ struct identitas
+  {
+   int no_rekening;
+   char nama[20], nama_belakang[50], alamat[100], j_t[20];
+   long saldo,setor,tarik, t_t, t_s, transfer, terima, tt, ts;
+   float bunga;
+  };
+ int a=-1; //untuk awal pengisian struct
+ identitas id[100]; //mendeklarasikan struct dengan panjang struct 100
+ char jawab, lagi, pass[6]; // variabel untuk pengulangan
+ int n, t, input, menu,ma,mn,m,i; //variabel input digunakan user untuk memasukan perintah
+      //variabel n untuk mencari data pada struct
+      //variabel menu untuk memilih menu
+      {system("color 3F");}//pemberian warna pada tulisan
+     {
+ int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"      SELAMAT DATANG DI BANK STMIK AMIK RIAU \n";
+ }}
+
+ { //awal program menu awal
+  menu:
+  system("cls");
+  ma:
+  gotoxy(10,2);cout<<" \n";
+ cout<<"\t\t|+++++++++++++++++++++++++++++++++++++++++|\n";
+ cout<<endl;
+ cout<<"\t\t|\t   program tabungan               |\n";
+ cout<<endl;
+ cout<<"\t\t|\t   TI STMIK AMIK RIAU             |";
+ cout<<endl;
+ cout<<"\n\t\t|+++++++++++++++++++++++++++++++++++++++++|\n";
+  cout<<"\n";
+   int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,12);cout<<' ';
+  gotoxy(m,12);cout<<"    MENU UTAMA \n";//menu admin untuk bank
+ }
+  cout<<"\t+==================================+\n";
+  cout<<"\t| 1. Menu Admin Bank               |\n";
+  cout<<"\t| 2. Menu Nasabah                  |\n";
+  cout<<"\t| 3. Exit                          |\n";
+  cout<<"\t+==================================+\n";
+  cout<<"\n\tPilih Menu Utama 1/2/3 : ";cin>>menu;
+  if (menu==1) //jika user memilih menu admin
+   { //awal menu pil 1
+    m_a:
+    system("cls");
+    tanya:
+   int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"        MENU ADMIN BANK \n";//menu admin untuk bank
+ }
+    cout<<"\n";
+    cout<<"\t\t+==================================+\n";
+    cout<<"\t\t| 1. Input Data Nasabah            |\n";
+    cout<<"\t\t| 2. List Nasabah                  |\n";
+    cout<<"\t\t| 3. Laporan Penarikan dan Setoran |\n";
+    cout<<"\t\t| 4. Exit                          |\n";
+    cout<<"\t\t+==================================+\n";
+    cout<<"\n";
+    cout<<"\t\tPilih Menu 1/2/3/4 : ";cin>>ma;
+    switch (ma)
+    { //awal case of ma
+
+     case 1: //jika admin memilih menu Input Nasabah
+      { //awal menu 1
+
+       ma1: //label
+       a++; //untuk pengisian dan penambahan jika struct yang pertama sudah di isi maka akan lanjut ke struct selanjutnya
+       system("cls"); //untuk menghapus screen fungsinya sama dengan clrscr()
+                        //5678901234567890123456789012345678901234567890//
+       gotoxy(8,3);cout<<"+===================================+\n";
+       gotoxy(8,4);cout<<"|        Input Data Nasabah         |\n";
+       gotoxy(8,5);cout<<"+===================================+\n";
+       gotoxy(8,7);cout<<"|";
+       gotoxy(9,7);cout<<" Nomor Rekening : ";
+    gotoxy(26,7);cin>>id[a].no_rekening;
+    gotoxy(44,7);cout<<"|";
+    gotoxy(8,8);cout<<"|";
+       gotoxy(9,8);cout<<" Nama Depan     : ";
+    gotoxy(26,8);cin>>id[a].nama;
+    gotoxy(44,8);cout<<"|";
+    gotoxy(8,9);cout<<"|";
+       gotoxy(9,9);cout<<" Nama Belakang  : ";
+    gotoxy(26,9);cin>>id[a].nama_belakang;
+    gotoxy(44,9);cout<<"|";
+    gotoxy(8,10);cout<<"|";
+       gotoxy(9,10);cout<<" Alamat         : ";
+    gotoxy(26,10);cin>>id[a].alamat;
+    gotoxy(44,10);cout<<"|";
+    gotoxy(8,11);cout<<"|";
+       gotoxy(9,11);cout<<" Jenis Tabungan : ";
+    gotoxy(26,11);cin>>id[a].j_t;
+    gotoxy(44,11);cout<<"|";
+       gotoxy(8,12);cout<<"\n";
+       gotoxy(8,13);cout<<"+=================================+\n";
+       gotoxy(8,14);cout<<"|     Data berhasil diproses      |\n";
+       gotoxy(8,15);cout<<"|                                 |\n";
+       gotoxy(8,16);cout<<"|           Terima kasih          |\n";
+       gotoxy(8,17);cout<<"+=================================+\n";
+
+       ask: //label
+       gotoxy(5,19);cout<<"Input Data Nasabah Selanjutnya ? (y/t) : ";cin>>lagi;
+       if (lagi=='y' || lagi=='Y')
+        {
+         goto ma1; //goto berfungsi untuk membuat lompatan pada program
+        }
+       else if (lagi=='t' || lagi=='T')
+        {
+         goto m_a;
+        }
+       else
+        {
+         gotoxy(5,19);cout<<"Input salah !!! \n";
+         goto ask;
+        }
+       break;
+      } //akhir menu 1
+      case 2: //jika admin memilih menu list nasabah
+      {  //awal menu 2
+       ma2:
+       system("cls");
+        int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"         List Nasabah  \n";//menu admin untuk bank
+ }
+
+
+       cout<<"\t\t+======================================+\n";
+       for (n=0;n<=a;n++) //pengulangan untuk mencari dan menampilkan data nasabah
+        {
+         cout<<"\t\tNo.             : "<<(n+1)<<endl;
+         cout<<"\t\tNomor Rekening  : "<<id[n].no_rekening<<endl; //endl; untuk perintah newline atau pindah baris
+         cout<<"\t\tNama Lengkap    : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+   cout<<"\n";
+   cout<<endl;
+
+        }
+       ask1:
+       cout<<"\n\t\tLihat Detail Nasabah ? (y/t) : ";cin>>jawab;
+       if (jawab=='y' || jawab=='Y')
+        { nomo_rek:
+         cout<<"\n\t\tMasukkan Nomor Rekening untuk detail Nasabah : ";cin>>input;
+         for (n=0;n<=a;n++)
+         {
+          if (input==id[n].no_rekening)
+          { system("cls");
+                //5678901234567890123456789012345678901234567890
+           gotoxy(13,3);cout<<"+==================================+\n";
+           gotoxy(13,4);cout<<"|        Detail Data Nasabah       |\n";
+           gotoxy(13,5);cout<<"+==================================+\n";
+        gotoxy(13,7);cout<<"|";
+           gotoxy(15,7);cout<<"Nomor Rekening  : ";
+        gotoxy(32,7);cout<<id[n].no_rekening;
+        gotoxy(48,7);cout<<"|";
+        gotoxy(13,8);cout<<"|";
+           gotoxy(15,8); cout<<"Nama Lengkap    : ";
+        gotoxy(32,8);cout<<id[n].nama<<" "<<id[n].nama_belakang;
+        gotoxy(48,8);cout<<"|";
+        gotoxy(13,9);cout<<"|";
+           gotoxy(15,9); cout<<"Alamat          : ";
+        gotoxy(32,9);cout<<id[n].alamat;
+        gotoxy(48,9);cout<<"|";
+        gotoxy(13,10);cout<<"|";
+           gotoxy(15,10); cout<<"Jenis Tabungan  : ";
+        gotoxy(32,10);cout<<id[n].j_t;
+           gotoxy(48,10);cout<<"|";
+        gotoxy(13,11);cout<<"|";
+           gotoxy(15,11);cout<<"Jumlah Saldo    : Rp. ";
+           gotoxy(36,11);cout<<id[n].saldo;
+           gotoxy(48,11);cout<<"|";
+        gotoxy(13,12);cout<<"|";
+           id[n].bunga=id[n].saldo*0.05;
+           gotoxy(15,12); cout<<"Bunga (5%/bulan): Rp. ";
+        gotoxy(48,12);cout<<"|";
+        gotoxy(14,13);cout<<"\n";
+           gotoxy(13,13);cout<<"===================================\n";
+
+
+           ask2:
+   cout<<endl;
+           gotoxy(13,13);cout<<"\n\t\tKembali ke List Nasabah ? (y/t) : ";cin>>jawab;
+           if (jawab=='y' || jawab=='Y')
+            {
+             goto ma2;
+            }
+           else if (jawab=='t' || jawab=='T')
+            {
+             goto m_a;
+            }
+           else
+            {
+             cout<<"\n\t\t+=================+";
+             cout<<"\n\t\t| Input Salah !!! |";
+             cout<<"\n\t\t+=================+";
+             goto ask2;
+            }
+          }
+         }
+         cout<<"\n\t\tNomor Rekening Salah !!!\n";
+         goto nomo_rek;
+        }
+       else if (jawab=='t' || jawab=='T')
+        {
+         goto m_a;
+        }
+       else
+        {
+         cout<<"\nInput Salah !!!";
+         goto ask1;
+        }
+       getch();
+
+       //akhir menu 2
+      case 3: // jika admin bank memilih menu laporan dan penarikan dari setiap nasabah
+      { //awal menu 3
+       system("cls");
+        gotoxy(10,3);cout<<" \n";
+
+       cout<<"\t\t+#########################################+\n";
+       cout<<endl;
+       cout<<"\t\t|      Laporan Penarikan dan Setoran        |\n";
+       cout<<endl;
+       cout<<"\t\t+#########################################+\n";
+       cout<<"  \n";
+       for (n=0;n<=a;n++)
+        {
+   cout<<endl;
+   cout<<"\t\t+===========================================+\n";
+         cout<<"\t\tNo.              : "<<(n+1)<<endl;
+         cout<<"\t\tNomor Rekening   : "<<id[n].no_rekening<<endl;
+         cout<<"\t\tNama Lengkap     : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+         cout<<"\t\tAlamat           : "<<id[n].alamat<<endl;
+         cout<<"\t\tTotal Setoran    : Rp."<<id[n].t_s<<endl;
+         cout<<"\t\tTotal Penarikan  : Rp."<<id[n].t_t<<endl;
+         cout<<"\t\tTotal Transfer   : Rp."<<id[n].ts<<endl;
+         cout<<"\t\tTotal Terima     : Rp."<<id[n].tt<<endl;
+         id[n].bunga=id[n].saldo*0.05;
+         cout<<"\t\tBunga (5%/bulan) : Rp."<<id[n].bunga<<endl;
+         cout<<"\t\tSisa Saldo       : RP."<<id[n].saldo<<endl;
+         cout<<" \n";
+         cout<<"\t\t+===========================================+\n";
+        }
+        cetak:
+        cout<<"\n\t\tCetak Laporan ? (y/t) : ";cin>>jawab;
+        {
+         if (jawab=='y'||jawab=='Y')
+          {
+           system("cls");
+           gotoxy(10,3);cout<<" \n";
+           for (n=0;n<=a;n++)
+           {
+
+            cout<<"\n\t===================================================================\n";
+            cout<<"\tNo.              : "<<(n+1)<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tNomor Rekening   : "<<id[n].no_rekening<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tNama Lengkap     : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tAlamat           : "<<id[n].alamat<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tTotal Setoran    : Rp. "<<id[n].t_s<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tTotal Penarikan  : Rp. "<<id[n].t_t<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tTotal Transfer   : Rp. "<<id[n].ts<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tTotal Terima     : Rp. |"<<id[n].tt<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tBunga (5%/bulan) : Rp. "<<id[n].bunga<<endl;
+            cout<<"\t--------------------------------------------------------------------\n";
+            cout<<"\tSisa Saldo       : RP. "<<id[n].saldo<<endl;
+            cout<<" \n\t";
+            cout<<"====================================================================== \n";
+           }
+          }
+         else if (jawab=='t'||jawab=='T')
+          {
+           goto m_a;
+          }
+         else
+          {
+           cout<<"\n\tInput Salah !!!";
+           goto cetak;
+          }
+        }
+       tanya1:
+       cout<<"\n\tKeterangan :";
+       cout<<"\n\t(Y/y) = untuk kembali ke menu admin bank";
+       cout<<"\n\t(T/t) = untuk kembali ke menu utama";
+       cout<<"\n\tKembali Ke Menu Admin ? (y/t) : ";cin>>jawab;
+       if (jawab=='y' || jawab=='Y')
+        {
+         goto m_a;
+        }
+       else if (jawab=='t' || jawab=='T')
+        {
+         goto menu;
+        }
+       else
+        {
+         cout<<"\n\tPilihan tidak ada !!!\n";
+         goto tanya1;
+        }
+      getch();
+      } //akhir menu 3
+     case 4: //jika admin memilih menu keluar (exit)
+      { //awal menu 4
+       goto menu;
+       getch();
+      } //akhir menu 4
+     default: cout<<"\n\tMenu yang dipilih tidak ada !!!\n"; //jika admin memilih menu selain 4
+       goto tanya;
+    getch();
+    } //akhir case of ma (menu admin)
+   getch();
+   }  }//akhir menu pil 1
+   if (menu==2) //jika user memilih menu nasabah
+  { //awal menu 2
+   system("cls");
+   awal:
+   gotoxy(1,2);cout<<"\n\tMasukan Nomor Rekening : ";cin>>input;
+   for (n=0;n<=a;n++)
+    {
+     if (input==id[n].no_rekening)
+     {
+      m_n:
+        system("cls");
+        mn:
+   gotoxy(10,3);cout<<" \n";
+      cout<<"\n\t\t+==================================+\n";
+      cout<<"\t\t|            Menu Nasabah          |\n";
+      cout<<"\t\t|==================================|\n";
+      cout<<"\t\t| 1. Setoran                       |\n";
+      cout<<"\t\t| 2. Penarikan                     |\n";
+      cout<<"\t\t| 3. Transfer                      |\n";
+      cout<<"\t\t| 4. Cek Saldo                     |\n";
+      cout<<"\t\t| 5. Exit                          |\n";
+      cout<<"\t\t+==================================+\n";
+      cout<<"\n";
+      cout<<"\n\t\tMasukan Pilihan 1/2/3/4 : ";cin>>mn;
+      switch (mn)
+       { //awal case of mn
+        case 1:
+        { //awal menu nasabah 1
+         system("cls");
+          int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"       Penyetoran   \n";//menu admin untuk bank
+ }
+               cout<<"\n";
+          {
+           {
+            cout<<"\t\t+==================================+\n";
+            cout<<"\t\t|        Detail Data Nasabah       |\n";
+            cout<<"\t\t+==================================+\n";
+            cout<<"\t\tNomor Rekening : "<<id[n].no_rekening<<endl;
+            cout<<"\t\tNama Lengkap   : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+            cout<<"\t\tAlamat         : "<<id[n].alamat<<endl;
+            cout<<"\t\tJenis Tabungan : "<<id[n].j_t<<endl;
+            cout<<"\t\tJumlah Saldo   : Rp."<<id[n].saldo<<endl;
+            cout<<"\n";
+            cout<<"\t\tMasukan Jumlah Uang yang akan disetor : Rp.";cin>>id[n].setor;
+            cout<<"\n";
+            {
+             if (id[n].setor<20000)
+              { system("cls");
+              gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=============================================+\n";
+               cout<<"\t\t|    Maaf setoran anda tidak dapat di proses  |\n";
+               cout<<"\t\t|            Minimal setoran Rp.20.000        |\n";
+               cout<<"\t\t+=============================================+\n";
+              }
+             else
+              { id[n].saldo=id[n].setor+id[n].saldo;
+               //id[n].bunga=id[n].saldo*0.05;
+               id[n].t_s=id[n].setor+id[n].t_s;
+               system("cls");
+               gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=================================+\n";
+               cout<<"\t\t|    Setoran berhasil diproses    |\n";
+               cout<<"\t\t+=================================+\n";
+               cout<<"\n";
+               cout<<"\t\tJumlah saldo anda : Rp."<<id[n].saldo;
+               cout<<"\n"<<endl;
+              }
+            }
+           }
+          }
+         tanya2:
+   cout<<endl;
+         cout<<"\n \t\t(Y/y) = Kembali Ke Menu Nasabah";
+         cout<<"\n \t\t(T/t) = Kembali Ke Menu Utama";
+         cout<<"\n\t\tKembali Ke Menu Nasabah ? (y/t) : ";cin>>jawab;
+         if (jawab=='y' || jawab=='Y')
+          {
+           goto m_n;
+          }
+         if (jawab=='t' || jawab=='T')
+          {
+           goto menu;
+          }
+         else
+          {
+           cout<<"\n\t\tPilihan tidak ada !!!\n";
+           goto tanya2;
+          }
+
+         getch();
+        } //akhir menu nasabah 1
+        case 2: //jika user memilih menu penarikan
+        {  //awal menu nasabah 2
+         system("cls");
+         int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"       Penarikan   \n";//menu admin untuk bank
+ }
+         cout<<"\n";
+          {
+            {
+             cout<<"\t\t+==================================+\n";
+             cout<<"\t\t|        Detail Data Nasabah       |\n";
+             cout<<"\t\t+==================================+\n";
+             cout<<"\t\tNomor Rekening : "<<id[n].no_rekening<<endl;
+             cout<<"\t\tNama Lengkap   : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+             cout<<"\t\tAlamat         : "<<id[n].alamat<<endl;
+             cout<<"\t\tJenis Tabungan : "<<id[n].j_t<<endl;
+             cout<<"\t\tJumlah Saldo   : Rp."<<id[n].saldo<<endl;
+             cout<<"\n";
+             cout<<"\t\tMasukan Jumlah Uang yang akan ditarik : Rp.";cin>>id[n].tarik;
+             cout<<"\n";
+             if (id[n].saldo-id[n].tarik<10000)
+              { system("cls");
+              gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=====================================+\n";
+               cout<<"\t\t|   Maaf Saldo Anda Tidak Mencukupi   |\n";
+               cout<<"\t\t|     Sisa Saldo Minimal Rp.10.000    |\n";
+               cout<<"\t\t+=====================================+\n";
+              }
+             else
+              {
+               id[n].saldo=id[n].saldo-id[n].tarik;
+               //id[n].bunga=id[n].saldo*0.05;
+               id[n].t_t=id[n].tarik+id[n].t_t;
+               system("cls");
+               gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=================================+\n";
+               cout<<"\t\t|   Penarikan berhasil diproses   |\n";
+               cout<<"\t\t|     Silahkan Ambil Uang Anda    |\n";
+               cout<<"\t\t+=================================+\n";
+               cout<<"\n";
+               cout<<"\t\tSisa saldo anda : Rp."<<id[n].saldo;
+               cout<<"\n"<<endl;
+              }
+            }
+          }
+         tanya3:
+         cout<<"\n\t\t (Y/y) = Kembali Ke Menu Nasabah";
+         cout<<"\n\t\t (T/t) = Kembali Ke Menu Utama";
+         cout<<"\n\t\tKembali Ke Menu Nasabah ? (y/t) : ";cin>>jawab;
+         if (jawab=='y' || jawab=='Y')
+          {
+           goto m_n;
+          }
+         if (jawab=='t' || jawab=='T')
+          {
+           goto menu;
+          }
+         else
+          {
+           cout<<"\n\t\tPilihan tidak ada !!!\n";
+           goto tanya3;
+          }
+         getch();
+        } //akhir menu nasabah 2
+        case 3: //jika user memilih menu transfer
+        {//awal menu nasabah 3
+         system("cls");
+          int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"          Transfer   \n";//menu admin untuk bank
+ }
+
+         cout<<"\t\t+=================================+\n";
+         mn4:
+         cout<<"\n\t\tMasukan Nomor Rekenig Tujuan : ";cin>>input;
+         for (t=0;t<=a;t++)
+          {
+           if (input==id[t].no_rekening)
+            {
+             cout<<"\n\t\t+===================================================+\n";
+             cout<<"\t\tNomor Rekening : "<<id[t].no_rekening<<endl;
+             cout<<"\t\tNama Lengkap   : "<<id[t].nama<<" "<<id[t].nama_belakang<<endl;
+             cout<<"\t\tAlamat         : "<<id[t].alamat<<endl;
+             cout<<"\n\t\tMasukan jumlah Transfer : Rp.";cin>>id[t].transfer;
+             tanya5:
+             cout<<"\n\t\tData Sudah Benar ?";
+             cout<<"\n\t\tProses Transfer ? (y/t) : ";cin>>jawab;
+             if (jawab=='y' || jawab=='Y')
+             {
+              if (id[n].saldo-id[t].transfer<20000)
+              { system("cls");
+              gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=====================================+\n";
+               cout<<"\t\t|   Maaf Saldo Anda Tidak Mencukupi   |\n";
+               cout<<"\t\t|     Sisa Saldo Minimal Rp.20.000    |\n";
+               cout<<"\t\t+=====================================+\n";
+              }
+              else
+              { id[n].saldo=id[n].saldo-id[t].transfer;
+               id[t].saldo=id[t].transfer+id[t].saldo;
+               id[t].tt=id[t].transfer+id[t].tt;
+               id[n].ts=id[t].transfer+id[n].ts;
+               system("cls");
+               gotoxy(1,2);cout<<"\n";
+               cout<<"\t\t+=====================================+\n";
+               cout<<"\t\t|     Transfer Berhasil Diperoses     |\n";
+               cout<<"\t\t|             Terima Kasih            |\n";
+               cout<<"\t\t+=====================================+\n";
+
+               cout<<"\n\t\t Sisa Saldo : "<<id[n].saldo<<endl;
+              }
+              tanya7:
+              cout<<"\n\t\t+=================================+\n";
+              cout<<"\n\t\tKeterangan =";
+              cout<<"\n\t\t(Y/y)  = Kembali Ke Menu Nasabah";
+              cout<<"\n\t\t(T/t)  = Kembali Ke Menu Utama";
+              cout<<"\n\t\tKembali ke Menu Nasabah ? (y/t) : ";cin>>jawab;
+              if (jawab=='y'||jawab=='Y')
+               {
+                goto m_n;
+               }
+              else if (jawab=='t'||jawab=='T')
+               {
+                goto menu;
+               }
+              else
+               {
+                cout<<"\n\t\tInput Salah !!!\n";
+                goto tanya7;
+               }
+             }
+             else if (jawab=='t'||jawab=='T')
+             {
+              goto mn4;
+             }
+             else
+             {
+              cout<<"\n\t\tInput Salah !!!\n";
+              goto tanya5;
+             }
+            }
+          }
+         cout<<"\n\t\tNomor Rekening tidak terdaftar !!!\n";
+         tanya6:
+         cout<<"\n\t\tKembali Ke Menu ? (y/t) : ";cin>>jawab;
+         if (jawab=='y'||jawab=='Y')
+          {
+           goto m_n;
+          }
+         else if (jawab=='t'||jawab=='T')
+          {
+           goto mn4;
+          }
+         else
+          {
+           cout<<"\n\t\tInput Salah !!!\n";
+           goto tanya6;
+          }
+         getch();
+        }//akhir menu nasabah 3
+        case 4: // jika user memilih menu cek saldo
+        { //awal menu nasabah 4
+         system("cls");
+         int m,i;
+
+     for(m=1;m<20;m++)
+ {
+  delay(120);
+  gotoxy(m-1,3);cout<<' ';
+  gotoxy(m,3);cout<<"         Cek Saldo    \n";//menu admin untuk bank
+ }
+
+          {
+            {
+             cout<<"\n\t\t+==================================+\n";
+             cout<<"\t\t|        Detail Data Nasabah       |\n";
+             cout<<"\t\t+==================================+\n";
+             cout<<"\n";
+             cout<<"\t\tNomor Rekening   : "<<id[n].no_rekening<<endl;
+             cout<<"\t\tNama Lengkap     : "<<id[n].nama<<" "<<id[n].nama_belakang<<endl;
+             cout<<"\t\tAlamat           : "<<id[n].alamat<<endl;
+             cout<<"\t\tJenis Tabungan   : "<<id[n].j_t<<endl;
+             id[n].bunga=id[n].saldo*0.05;
+             cout<<"\t\tBunga (5%/bulan) : Rp."<<id[n].bunga<<endl;
+             cout<<"\t\tJumlah Saldo     : Rp."<<id[n].saldo<<endl;
+            }
+          }
+         tanya4:
+         cout<<"\n\t\t (Y/y) = Kembali Ke Menu Nasabah";
+         cout<<"\n\t\t (T/t) = Kembali Ke Menu Utama";
+         cout<<"\n\t\tKembali Ke Menu Nasabah ? (y/t) : ";cin>>jawab;
+         if (jawab=='y' || jawab=='Y')
+          {
+           goto m_n;
+          }
+         if (jawab=='t' || jawab=='T')
+          {
+           goto menu;
+          }
+         else
+          {
+           cout<<"\n\t\tPilihan tidak ada !!!\n";
+           goto tanya4;
+          }
+         getch();
+        }// akhir menu nasabah 4
+        case 5: //jika user memilih menu exit
+        {//awal menu nasabah 5
+         goto menu;
+        }//akhir menu nasabah 5
+       default:
+        {
+         cout<<"\t\tMenu yang anda pilih tidak ada !!!\n";
+         goto mn;
+        }
+       getch();
+       }
+     }
+    }
+    cout<<"\n\t\tNomor Rekening Salah !!!\n";
+    goto awal;
+  }//akhir menu 2
+   else if (menu>3)
+    {
+     cout<<"\n\t\tMenu yang dipilih tidak ada !!!\n";
+
+    }
+  //akhir program menu awal
+}//getch();
+return 0;
+}

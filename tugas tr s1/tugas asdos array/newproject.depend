@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1667663089 source:d:\c language\newproject\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1667724217 source:d:\c language\tugas asdos array\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+  int kuadrat, menu;
+  float a,b,c,d;
+
+    printf("------- Menu Pitagoras -------\n");
+    printf("1. Mencari sisi miring (c) \n");
+    printf("2. embuktian segitiga siku-siku\n (a)");
+    printf("3. Keluar program \n");
+    printf("------------------------------\n");
+
+    printf("Pilih nomor menu: ");
+    scanf("%d",&menu);
+    fflush(stdin);
+
+    if(menu == 1){
+    printf("Masukkan nilai alas: ");scanf("%f", &a);
+    printf("Masukkan nilai b: ");scanf("%f", &b);
+      c=sqrt((a*a)+(b*b));
+    printf("Nilai sisi miring adalah %.2f\n", c);
+    }
+    else if (menu == 2){
+    printf("masukkan nilai alas; "); scanf("%f", &a);
+    printf("masukkan nilai tinggi:"); scanf("%f", &b);
+        c=((a*a)+(b*b));
+    printf("Nilai kuadrat a+b adalah %.2f\n", c);
+
+    if(kuadrat=c);
+        d= sqrt(c);
+        printf("Hasil kuadrat darinya: %2f\n",d);
+        printf("jika tidak ada tanda koma maka segitiga siku-siku");
+    }
+    else {printf("bukan segitiga siku-siku");
+
+    }
+
+    return 0;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int menu;
+    printf("Pilih menu");
+    printf("1. Tambah Matriks :");
+    printf("2. Kali Matriks :");
+    printf("3. Keluar :");
+    do{
+        scanf("%i", &menu);
+        if (menu==1)
+        {
+            printf("Pilhan kamu 1");
+        }else if(menu==2)
+        {
+            printf("pilihan kamu 2");
+        }
+    }
+    return 0;
+}while(menu!=3);
+printf("Selesai");
+
+
+}
+#include <stdio.h>
+#include <stdlib.h>
+void tambahMatriks( int A[][2], int B[][2]){
+    int i,j;
+    int C[2][2];
+    printf("Hasil penjumlahan:\n");
+    for (i = 1; i <= 2; i++) {
+        for (j = 0; j <=2; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+            printf("%d\t", C[i][j]);
+        }
+        printf("\n");
+    }
+}
+void kaliMatriks(int A[][2], int B[][2]) {
+    int C[2][2];
+    int i, j, k;
+
+    printf("Hasil perkalian:\n");
+    for (i = 1; i <= 2; i++) {
+        for (j = 1; j <= 2; j++) {
+            C[i][j] = 0;
+            for (k = 1; k <=2; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+            printf("%d\t", C[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int menu;
+    int matriks1[2][2], matriks2[2][2];
+    printf("Pilih menu\n");
+    printf("1. Tambah Matriks \n");
+    printf("2. Kali Matriks \n");
+    printf("3. Keluar \n");
+    printf("Pilih menu=");
+    do{
+        scanf("%i", &menu);
+        int i,j;
+        if (menu==1)
+        {
+            printf("Pilhan kamu 1\n");
+            printf("Masukkan nilai matriks pertama\n");
+            for(i=1; i<=2; i++)
+            for(j=1; j<=2; j++){
+                printf("Masukkan A [%d] [%d]", i, j);
+                scanf("%d", matriks1);
+            }
+            printf("Masukkan nilai matriks kedua\n");
+            for(i=1; i<=2; i++)
+            for(j=1; j<=2; j++){
+                printf("Masukkan B [%d] [%d]", i, j);
+                scanf("%d", matriks2);
+                }
+
+                tambahMatriks(matriks1, matriks2);
+
+        }else if(menu==2)
+        {
+            printf("pilihan kamu 2");
+            printf("Masukkan nilai matrikd pertama\n");
+            for(i=1; i<=2; i++)
+            for(j=1; j<=2; j++){
+                printf("Masukkan A [%d] [%d]\n", i, j);
+                scanf("%d", matriks1);
+            }
+            printf("Masukkan nilai matriks kedua\n");
+            for(i=1; i<=2; i++)
+            for(j=1; j<=2; j++){
+                printf("Masukkan B [%d] [%d]\n", i, j);
+                scanf("%d", matriks2);
+            }
+            kaliMatriks(matriks1, matriks2);
+        }
+    }while(menu!=3);
+     printf("Selesai");
+    return 0;
+}
+

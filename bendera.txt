@@ -1,0 +1,88 @@
+void main(){
+    int n,a,b,d;
+    printf("Masukkan angka:"); scanf("%d", &n);
+    //baris pertama
+    for (int a=0; a<n-(n-1); a++){
+        printf("\t");
+        for (int b=0; b<(n*2)+2; b++){
+            printf("*");
+        }
+    printf("\n");
+    }
+    //baris kedua
+    for(int a=1; a<n; a++){
+        printf("\t");
+        for (int b=0; b<n; b++){
+            printf("%d",b);
+        }
+        for (int c=0; c<n-(n-2); c++){
+            printf(" ");
+        }
+        for(int d=0; d<n; d++){
+            printf("%d", d);
+        }
+        printf("\n");
+    }
+    //baris ketiga
+    for (int a=0; a<n-(n-2); a++){
+        printf("\t");
+        for(int b=0; b<n-(n-2); b++){
+            printf("%d", b);
+        }
+        for(int c=0; c<(n*2)-2; c++){
+            printf("*");
+        }
+        for(int d=0; d<n-(n-2); d++){
+            printf("%d", d);
+        }
+        printf("\n");
+    }
+    //baris keempat
+    for(int a=1; a<n; a++){
+        printf("\t");
+        for (int b=0; b<n; b++){
+            printf("%d",b);
+        }
+        for (int c=0; c<n-(n-2); c++){
+            printf("*");
+        }
+        for(int d=0; d<n; d++){
+            printf("%d", d);
+        }
+        printf("\n");
+    }
+
+    //baris kelima
+    for (int a=0; a<n-(n-1); a++){
+        printf("\t");
+        for (int b=0; b<(n*2)+2; b++){
+            printf("*");
+        }
+    printf("\n");
+    }
+//bendera baru
+#include <stdio.h>
+void main(){
+    int a,b,c,d,e,f,g,h,n;
+    printf("masukkan angka:"); scanf("%d", &n);
+    for (a=0; a<n; a++){
+        printf("\t");
+        for (c=0; c<n+1; c++){
+            printf("*");  
+            for (b=a; b<n; b++){
+            printf("%d", b);
+            }  
+        }
+        printf("\t");
+        for (d=a; d<n; d++){
+            printf(" ");
+        }
+            for (e=0; e<n; e++){
+                printf("%d", e);
+            }
+            for (f=1; f<n; f++){
+                printf("%d", f);
+            }
+        printf("\n");
+    }
+}

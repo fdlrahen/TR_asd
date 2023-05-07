@@ -1,0 +1,37 @@
+fungsi perpangkatan
+#include<stdio.h>
+ //menggunakan for looping biasa
+int main(void)
+{
+    int a,x,y,total=1;
+ 
+    printf("Isi Angka yang Akan Dipangkatkan : "); scanf("%i", &x);
+    printf("Pangkat :"); scanf("%i", &y);
+
+    for(a=1;a<=y;a++){
+        total=total*x;
+    }
+    printf("Hasilnya adalah %d", total);
+    return 0;
+}
+
+//menggunakan fungsi rekursif
+#include <stdio.h>
+int pangkat (int x, int y)  //parameter pangkat
+{   //struktur pemilihan if else
+    if (y == 0)  //bila memasukan pangkat 0 maka akan dikalikan 1
+    {
+        return 1;
+    }else
+        {   //bila selain angka satu maka akan diproses perkalian 
+            return x * pangkat (x, y-1);
+        }
+}
+int main()
+{
+    int x, y;  //variabel untuk bil bulat dan bil pangkat
+    printf ("Masukan bilangan yang akan dipangkatkan = "); scanf ("%d", &x);  //inputan bilangan bulat
+    printf ("\nPangkat Bilangan = "); scanf ("%d", &y);  //inputan pangkat
+    printf ("Hasil bilangan %d pangkat %d adalah %d", x, y, pangkat (x, y));  //pemanggilan fungsi pangkat
+    return 0;   
+}

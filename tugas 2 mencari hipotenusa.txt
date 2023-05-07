@@ -1,0 +1,34 @@
+#include <stdio.h>
+void main ()
+{
+
+    int input,kuadrat;
+    float a,b,r,y,L;
+    printf("1.------------------Mencari Hipotenusa------------------(L)\n");
+    printf("2.----Pembuktian bahwa segitiga benar benar siku-siku---(a)\n");
+    printf("    Segitiga siku-siku jika hasil pertambahan kuadrat alas\n dan tinggi adalah bilangan asli dan mempunyai akar bilangan asli\n");
+    printf("-----------------silahkan pilih no menu-----------------");
+    scanf("%d",&input);
+    fflush(stdin);
+    if(input == 1){
+    printf("Masukkan nilai alas: ");scanf("%f", &a);
+    printf("Masukkan nilai tinggi: ");scanf("%f", &b);
+      L=sqrt((a*a)+(b*b));
+    printf("Nilai sisi miring adalah %.2f\n", L);
+    }
+    else if (input == 2){
+    printf("masukkan nilai alas; "); scanf("%f", &a);
+    printf("masukkan nilai tinggi:"); scanf("%f", &b);
+
+        r=((a*a)+(b*b));
+    printf("Nilai kuadrat a+b adalah %2.f\n", r);
+    if(kuadrat=r);
+        y= sqrt(r);
+        printf("Hasil kuadrat darinya: %.1f\n",y);
+        printf("Angka dibelakang koma haruslah 0 jika tidak maka tidak termasuk bilangan asli dan artinya bukan termasuk bilangan hipotenusa dalam phytagoras");
+    }
+    else {
+            printf("bukan segitiga siku-siku");
+    }
+}
+S

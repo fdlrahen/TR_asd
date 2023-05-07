@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+// check if being compiled for windows or posix (linux/bsd/mac)
+#ifdef _WIN32
+    // include minimal windows headers
+    #define WIN32_LEAN_AND_MEAN
+    #include <windows.h>
+#else
+    // include posix headers
+    #include <time.h>
+#endif
+
+void milli_sleep(unsigned int milliseconds);
+void delay_print(char* str, unsigned int milliseconds);
+
+int main()
+{
+    delay_print("==============\n", 20);
+    delay_print("SELAMAT DATANG\n", 20); // 20 milliseconds = 0.02 seconds
+    delay_print("==============", 20);
+    return 0;
+}
+
+void delay_print(char* str, unsigned int milliseconds)
+{
+    for (; *str; str++) {
+        putchar(*str);
+        fflush(stdout);
+        milli_sleep(milliseconds); 
+    }
+}
+
+void milli_sleep(unsigned int milliseconds)
+{
+#ifdef _WIN32
+    // use windos Sleep function, sleeps for a number of milliseconds
+    Sleep(milliseconds);
+#else
+    // use posix nanosleep function, sleeps for a number of nanoseconds
+    struct timespec ts;
+    ts.tv_sec = milliseconds / 1000;
+    ts.tv_nsec = (milliseconds % 1000) * 1000000L;
+    nanosleep(&ts, NULL);
+#endif
+}

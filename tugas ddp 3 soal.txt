@@ -1,0 +1,122 @@
+tugas ddp 3 soal
+     int a,b,c,d, angka;
+     int result = 1;
+     int i = 1;
+// tugas 1
+      for(a=1;a<=5;a++){
+        for (b=a;b<=5;b++)
+            printf(" ");
+        for(b=1;b<=2*a-1;b++){
+            if(a%2==1){
+                printf("%d",b);
+            }
+            else printf("%d",a);}
+            printf("\n");
+        }
+
+//tugas 2
+    int menu;
+    printf("1. Urutkan dari yang terkeciil hingga yang terbesar\n");
+    printf("2. Urutkan dari yang terbesar ke yang terkecil\n");
+    printf("Masukkan nilai a: ");scanf("%d", &a);
+    printf("Masukkan nilai b: ");scanf("%d", &b);
+    printf("Masukkan nilai c: ");scanf("%d", &c);
+    printf("silahkan piilih menu: ");scanf("%d", &menu);
+
+    if (menu==1 && b<a && a<c && b<c){
+        b<a<c;
+        printf("%d %d %d\n", b,a,c);
+    }
+    else if (menu==1 && b<c && c<a && b<a){
+        b<c<a;
+        printf("%d %d %d\n", b,c,a);
+    }
+    else if (menu==1 && c<b && b<a && c<a){
+        c<b<a;
+        printf("%d %d %d\n", c,b,a);
+    }
+    else if (menu==1 && c<a && a<b && c<b){
+        c<a<b;
+        printf("%d %d %d\n", c,a,b);
+    }
+    else if (menu==1 && a<b && b<c && a<c) {
+        a<b<c;
+        printf("%d %d %d\n", a,b,c);
+    }
+    else if (menu==1 && a<c && c<b && a<b) {
+        a<c<b;
+        printf("%d %d %d\n", a,c,b);
+    }
+    // pengurutan dari terbesar ke terkecil
+    if (menu==2 && b<a && a<c && b<c){
+        b<a<c;
+        printf("%d %d %d\n", c,a,b);
+    }
+    else if (menu==2 && b<c && c<a && b<a){
+        b<c<a;
+        printf("%d %d %d\n", a,c,b);
+    }
+    else if (menu==2 && c<b && b<a && c<a){
+        c<b<a;
+        printf("%d %d %d\n", a,b,c);
+    }
+    else if (menu==2 && c<a && a<b && c<b){
+        c<a<b;
+        printf("%d %d %d\n", b,a,c);
+    }
+    else if (menu==2 && a<b && b<c && a<c) {
+        a<b<c;
+        printf("%d %d %d\n", c,b,a);
+    }
+    else if (menu==2 && a<c && c<b && a<b) {
+
+        a<c<b;
+        printf("%d %d %d\n", b,c,a);
+    }
+
+// tugas 3
+    printf("Masukkan Angka: "); scanf("%d",&angka);
+    printf("Jadi Faktorial dari %d = ",angka);
+    do {
+    printf("%d",i);
+    result=result *i;
+    i++;
+  }
+    while (i <=angka);
+    printf("\n");
+    printf("Hasil Faktorial dari Angka %d = %d",angka,result);
+    printf("\n");
+
+// tugas 4
+
+    int main () {
+    int waktu,poko,hasil,tunjangan,total;
+
+    printf("Masukkan Jenis gaji pokok : "); scanf("%d", &poko);
+    printf("Masukkan jam kerja  : ");scanf("%d", &waktu);
+
+    if(poko>= 10000000){
+        printf("Pegawai Tetap\n");
+        printf("Gaji Lembur = \n");
+        hasil=(waktu*75000);
+        printf("%d\n", hasil);
+        printf("Tunjangan =  \n");
+        tunjangan=poko*28/100;
+        printf("%d\n", tunjangan);
+        printf("Gaji Total = \n");
+        total=poko+hasil+tunjangan;
+        printf("%d\n", total);
+    }else{
+        printf("Pegawai Tidak Tetap\n");
+        printf("Gaji Lembur =  \n");
+        hasil=(waktu*50000);
+        printf("%d\n", hasil);
+        printf("Tunjangan =  \n");
+        tunjangan=poko*14/100;
+        printf("%d\n", tunjangan);
+        printf("Gaji Total = \n");
+        total=poko+hasil+tunjangan;
+        printf("%d\n", total );
+    }
+
+}

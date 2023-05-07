@@ -1,0 +1,82 @@
+int menu;
+    do{
+            /*
+        int angka;//deklarasi
+        angka = 10;//inisialisasi
+        scanf("%d", &angka);
+        */
+        int nim, tgl_lahir, bulan_lahir, thn_lahir, tinggi, alas;
+        float luas;
+        system("cls");
+        printf("menu\n");
+        printf("1.Tampilkan NIM\n");
+        printf("2.Tanggal lahir\n");
+        printf("3.Tampilkan segitiga siku-siku\n");
+        printf("4.Tampilkan segitiga sama sisi\n");
+        printf("5.Hitung luas segitiga\n");
+        printf("6.Exit\n");
+        printf("pilihan:");
+        scanf("%d", &menu);
+        switch(menu){
+        case 1:
+            printf("Masukkan NIM :");
+            scanf("%d", &nim);
+            printf("NIM saya : %d", nim);
+            getch();
+            break;
+        case 2:
+            printf("Masukkan tanggal lahir :");
+            scanf("%d %d %d", &tgl_lahir, &bulan_lahir, &thn_lahir);
+            printf("Tanggal lahir anda %d %d %d", tgl_lahir, bulan_lahir, thn_lahir );
+            getch();
+            break;
+        case 3:
+            printf("Masukkan tinggi:");
+            scanf("%d",&tinggi);
+            for (int i=0; i<tinggi; i++){
+                for (int j=0; j<i; j++){
+                    printf("*");
+                }printf("\n");
+            }
+            getch();
+            break;
+        case 4:
+            printf("Masukkan tinggi: ");
+            scanf("%d", &tinggi);
+            for (int i=0; i<tinggi; i++){
+                for (int j=tinggi; j>i; j--){
+                    printf(" ");
+                }for (int k=0; k<i*2-1; k++){
+                    printf("*");
+                }
+                printf("\n");
+            }
+            getch();
+            break;
+        case 5:
+            printf("Masukkan alas :");
+            scanf("%d", &alas);
+            printf("Masukkan tinggi:");
+            scanf("%d", &tinggi);
+            luas= 0.5*alas*tinggi;
+            printf("Luas segitiga: %.2f", luas);
+            getch();
+            break;
+        case 6:
+            break;
+        default:
+            printf("\nInputan tidak valid");
+        }
+    }while(menu!=6);//while menu tidak sama dengan 6
+
+	//system cls
+/*
+  int nim;
+  printf("Masukkan NINM:"); scanf("%d", &nim);
+  system ("cls");//menghilangkan kata masukkan NIM
+  printf("NIM saya"); scanf("%d", &nim);
+  */
+
+
+ 
+

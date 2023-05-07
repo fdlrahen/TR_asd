@@ -1,0 +1,52 @@
+program menghitung faktorial menggunakan berbagai macam cara 
+rekursif lebih hemat data for looping bahasa kurang hemat penyimpanan
+
+//fungsi rekursif
+#include<stdio.h>
+int faktorial(int angka){
+    if(angka<=1){
+        return 1;   
+    }
+    else{
+        return angka*faktorial(angka-1);
+    }   
+}
+int main(){
+    int angka;
+    printf("masukkan angka: "); scanf("%d", &angka);
+    printf("faktorial dari %d = %d\n",angka, faktorial(angka));
+    return 0;
+}
+
+//fungsi rekursif jika langsung memasukkan nilai hasil nilai adalah angka yang diimasukkan pada simpan
+#include<stdio.h>
+void main(){
+	int hitung=simpan(6);
+	printf("%d", simpan);
+
+int simpan(int x){
+	if (x==0){
+		return 1;
+	}else{
+		return x*simpan(x-1)
+	}
+}
+
+//bedanya adalah pada yang dapat dimasuki nilai kita buat perhitungannya terlebih dahulu tapi pada yang sudah terdapat nilai kita deklarasikan apa yang akan dilakukan perhitungannya  int hitung-simpan(6)
+
+//fungsi for looping biasa
+#include <stdio.h>
+int main(void)
+{
+  printf("## Program Bahasa C Menghitung Faktorial ## \n");
+  printf("=========================================== \n\n");
+  int angka,hasil,i;
+  printf("Input angka: ");
+  scanf("%d",&angka);
+  hasil = 1;
+  for(i=1; i<=angka; i++) {
+    hasil = hasil * i;
+  }
+  printf("%d! = %d \n",angka, hasil);
+  return 0;
+}
